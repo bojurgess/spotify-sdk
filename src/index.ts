@@ -1,6 +1,7 @@
 import { Auth } from './auth.js'
 import { Api } from './api.js'
 import { CurrentlyPlaying } from './endpoints/player/currentlyPlaying.js'
+import { UserQueue } from './endpoints/player/UserQueue.js'
 
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -13,6 +14,7 @@ export class SpotifySDK {
   private market: string;
 
   currentlyPlaying: CurrentlyPlaying;
+  userQueue: UserQueue;
 
   constructor() {
     this.auth = new Auth(this.accessToken);
@@ -27,10 +29,15 @@ export class SpotifySDK {
     this.baseUrl = this.api.getBaseUrl();
 
     this.currentlyPlaying = new CurrentlyPlaying(this.baseUrl, this.accessToken);
+    this.userQueue = new UserQueue(this.baseUrl, this.accessToken);
   }
 
   public getNowPlaying(): Promise<any> {
     return this.currentlyPlaying.get();
+  }
+
+  public getUserQueue(): Promise<any> {
+    return this.userQueue.get();
   }
 }
 
@@ -42,7 +49,7 @@ const sdk = new SpotifySDK()
 sdk.init(accessToken, baseUrl).then(() => {
   console.log('SDK initialized')
 
-  sdk.getNowPlaying().then((data) => {
+  sdk.getUserQueue().then((data) => {
     console.log(data)
   })
 })
