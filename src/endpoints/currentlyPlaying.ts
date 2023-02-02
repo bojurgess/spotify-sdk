@@ -1,4 +1,4 @@
-import { Endpoint } from '../endpoint'
+import { Endpoint } from '../endpoint.js'
 
 export class CurrentlyPlaying extends Endpoint {
   private endpoint: string = 'me/player/currently-playing'

@@ -8,11 +8,11 @@
     "watch": "tsc --watch",
     "format": "prettier --write \"src/**/*.ts\""
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.11.18",
     "prettier": "^2.8.3",
     "typescript": "^4.9.5"
   }

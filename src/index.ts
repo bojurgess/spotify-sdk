@@ -1,6 +1,6 @@
-import { Auth } from './auth'
-import { Api } from './api'
-import { CurrentlyPlaying } from './endpoints/currentlyPlaying'
+import { Auth } from './auth.js'
+import { Api } from './api.js'
+import { CurrentlyPlaying } from './endpoints/currentlyPlaying.js'
 
 export class SpotifySDK {
   private auth: Auth;
