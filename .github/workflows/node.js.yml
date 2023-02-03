@@ -25,5 +25,5 @@ jobs:
     - run: pnpm build
     - run: pnpm test
       env:
-        SPOTIFY_BASE_URL: ${{env.SPOTIFY_BASE_URL}}
-        SPOTIFY_ACCESS_TOKEN: ${{env.SPOTIFY_ACCESS_TOKEN}}
+        SPOTIFY_BASE_URL: ${{secrets.SPOTIFY_BASE_URL}}
+        SPOTIFY_ACCESS_TOKEN: ${{secrets.SPOTIFY_ACCESS_TOKEN}}
