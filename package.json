@@ -1,5 +1,5 @@
 {
-  "name": "spotify-sdk",
+  "name": "spotify-web-sdk-node",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
