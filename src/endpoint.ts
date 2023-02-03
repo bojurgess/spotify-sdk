@@ -7,10 +7,10 @@ export class Endpoint {
     this.accessToken = accessToken;
   }
 
-  fetchData(endpoint: string): Promise<any> {
-    return fetch(`${this.baseUrl}/${endpoint}`, {
+  async fetchData(endpoint: string): Promise<any> {
+    return await fetch(`${this.baseUrl}/${endpoint}`, {
       headers: {
-        Authorization: `Bearer ${this.accessToken}`
+        Authorization: `Bearer ${this.accessToken}`,
       },
     })
       .then((response) => response.json())
