@@ -24,3 +24,6 @@ jobs:
       run: pnpm install
     - run: pnpm build
     - run: pnpm test
+      env:
+        SPOTIFY_BASE_URL: ${{env.SPOTIFY_BASE_URL}}
+        SPOTIFY_ACCESS_TOKEN: ${{env.SPOTIFY_ACCESS_TOKEN}}
