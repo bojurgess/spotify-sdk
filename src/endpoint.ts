@@ -7,8 +7,9 @@ export class Endpoint {
     this.accessToken = accessToken;
   }
 
-  async fetchData(endpoint: string): Promise<any> {
-    return await fetch(`${this.baseUrl}/${endpoint}`, {
+  async fetchData(endpoint: string, query?: URLSearchParams): Promise<any> {
+    console.log(`${this.baseUrl}/${endpoint}?${query}`)
+    return await fetch(`${this.baseUrl}/${endpoint}?${query}`, {
       headers: {
         Authorization: `Bearer ${this.accessToken}`,
       },
