@@ -21,8 +21,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         registry-url: https://registry.npmjs.org/
         cache: 'pnpm'
-    - name: Login to NPM
-      run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - name: Install dependencies
       run: pnpm install
     - run: pnpm build
