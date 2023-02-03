@@ -8,8 +8,6 @@ export class Endpoint {
   }
 
   async fetchData(endpoint: string, query?: URLSearchParams): Promise<any> {
-    console.log(`${this.baseUrl}/${endpoint}?${query}`)
-
     if (query !== undefined) {
       return await fetch(`${this.baseUrl}/${endpoint}?${query}`, {
         headers: {
