@@ -1,8 +1,9 @@
 import { Auth } from './auth.js'
 import { Api } from './api.js'
-import { CurrentlyPlaying } from './endpoints/player/currentlyPlaying.js'
-import { UserQueue } from './endpoints/player/UserQueue.js'
-import { User } from './endpoints/users/User.js'
+import { CurrentlyPlaying, UserQueue } from './endpoints/player/entry.js'
+import { User, Top } from './endpoints/users/entry.js'
+
+import type { topType } from './types/topType.js'
 
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -17,6 +18,7 @@ export class SpotifySDK {
   currentlyPlaying: CurrentlyPlaying;
   userQueue: UserQueue;
   user: User;
+  top: Top;
 
   constructor() {
     this.auth = new Auth();
@@ -33,6 +35,7 @@ export class SpotifySDK {
     this.currentlyPlaying = new CurrentlyPlaying(this.baseUrl, this.accessToken);
     this.userQueue = new UserQueue(this.baseUrl, this.accessToken);
     this.user = new User(this.baseUrl, this.accessToken)
+    this.top = new Top(this.baseUrl, this.accessToken)
   }
 
   public getNowPlaying(): Promise<any> {
@@ -46,6 +49,10 @@ export class SpotifySDK {
   public getUser(): Promise<any> {
     return this.user.get();
   }
+
+  public getUserTop(type: topType): Promise<any> {
+    return this.top.get(type);
+  }
 }
 
 const accessToken = process.env.SPOTIFY_ACCESS_TOKEN
@@ -56,7 +63,7 @@ const sdk = new SpotifySDK()
 sdk.init(accessToken, baseUrl).then(() => {
   console.log('SDK initialized')
 
-  sdk.getUser().then((data) => {
+  sdk.getUserTop('artists').then((data) => {
     console.log(data)
   })
 })
