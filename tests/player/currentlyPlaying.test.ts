@@ -1,4 +1,4 @@
-import sdk from './init.js'
+import sdk from '../init.js'
 import { assert, expect, test } from 'vitest'
 
 test ('getCurrentlyPlaying', async () => {
