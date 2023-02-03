@@ -9,12 +9,23 @@ export class Endpoint {
 
   async fetchData(endpoint: string, query?: URLSearchParams): Promise<any> {
     console.log(`${this.baseUrl}/${endpoint}?${query}`)
-    return await fetch(`${this.baseUrl}/${endpoint}?${query}`, {
-      headers: {
-        Authorization: `Bearer ${this.accessToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .catch((error) => console.error(error));
+
+    if (query !== undefined) {
+      return await fetch(`${this.baseUrl}/${endpoint}?${query}`, {
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .catch((error) => console.error(error));
+    } else {
+      return await fetch(`${this.baseUrl}/${endpoint}`, {
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .catch((error) => console.error(error));
+    }
   }
 }
