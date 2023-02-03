@@ -25,4 +25,5 @@ jobs:
       run: pnpm install
     - run: pnpm build
     - run: npm publish
-      env: ${{secrets.npm_token}}
+      env: 
+       NPM_TOKEN: ${{secrets.npm_token}}
