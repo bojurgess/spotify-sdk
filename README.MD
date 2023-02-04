@@ -1,1 +1,1 @@
-![workflow](https://github.com/bojurgess/spotify-sdk/actions/workflows/node.js.yml/badge.svg)
+![CI Badge](https://github.com/bojurgess/spotify-sdk/actions/workflows/node.js.yml/badge.svg)

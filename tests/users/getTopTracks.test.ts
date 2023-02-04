@@ -1,7 +1,7 @@
 import sdk from '../init.js'
 import { assert, expect, test } from 'vitest'
 
-test ('getTop', async () => {
-  const data = await sdk.getUserTop('artists')
+test ('getTopTracks', async () => {
+  const data = await sdk.getUserTop()
   expect(data).toBeTruthy()
 })
